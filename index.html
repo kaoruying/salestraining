@@ -61,7 +61,6 @@
       color: #ffd28a;
       margin-bottom: 22px;
       backdrop-filter: blur(8px);
-      white-space: nowrap;
     }
 
     h1 {
@@ -81,8 +80,6 @@
       font-size: clamp(17px, 2.4vw, 22px);
       line-height: 1.8;
       color: rgba(255,255,255,0.82);
-      word-break: keep-all;
-      overflow-wrap: normal;
     }
 
     .course-grid {
@@ -149,7 +146,6 @@
       margin-bottom: 14px;
       position: relative;
       z-index: 1;
-      word-break: keep-all;
     }
 
     .course-card p {
@@ -158,8 +154,6 @@
       color: rgba(255,255,255,0.78);
       position: relative;
       z-index: 1;
-      word-break: keep-all;
-      overflow-wrap: normal;
     }
 
     .enter {
@@ -171,7 +165,6 @@
       color: #ffd28a;
       position: relative;
       z-index: 1;
-      white-space: nowrap;
     }
 
     .footer {
@@ -183,86 +176,22 @@
     }
 
     @media (max-width: 900px) {
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+
       .page {
-        padding: 42px 18px;
+        padding: 40px 18px;
         justify-content: flex-start;
       }
 
       .hero {
-        margin-top: 28px;
+        margin-top: 36px;
         margin-bottom: 30px;
-      }
-
-      .tag {
-        font-size: 12px;
-        letter-spacing: 1px;
-        padding: 7px 14px;
-      }
-
-      h1 {
-        font-size: 42px;
-        line-height: 1.16;
-      }
-
-      .subtitle {
-        font-size: 16px;
-        line-height: 1.75;
-        max-width: 330px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .course-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
       }
 
       .course-card {
         min-height: auto;
-        padding: 24px;
-        border-radius: 24px;
-      }
-
-      .icon {
-        width: 52px;
-        height: 52px;
-        font-size: 26px;
-        margin-bottom: 18px;
-      }
-
-      .course-card h2 {
-        font-size: 24px;
-      }
-
-      .course-card p {
-        font-size: 15px;
-        line-height: 1.75;
-      }
-
-      .enter {
-        margin-top: 20px;
-      }
-
-      .footer {
-        margin-top: 32px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .page {
-        padding: 36px 16px;
-      }
-
-      h1 {
-        font-size: 38px;
-      }
-
-      .subtitle {
-        max-width: 300px;
-      }
-
-      .course-card {
-        padding: 22px;
       }
     }
   </style>
@@ -276,16 +205,17 @@
       <div class="tag">KGI LIFE TRAINING PROGRAM</div>
       <h1>凱基人壽<br><span>制式課程</span></h1>
       <p class="subtitle">
-        從主任、襄理到經理，依職涯階段打造完整培育路徑，協助業務夥伴累積專業、提升管理力，穩健邁向下一階段。
+        從主任、襄理到經理，依職涯階段打造完整培育路徑，<br>
+        協助業務夥伴累積專業、提升管理力，穩健邁向下一階段。
       </p>
     </section>
 
     <section class="course-grid">
-      <a href="https://kaoruying.github.io/astraning/" class="course-card" target="_blank">
+ <a href="https://kaoruying.github.io/astraning/" class="course-card">
         <div class="icon">🚀</div>
         <h2>業務主任課程</h2>
         <p>
-          聚焦高效行銷、增員啟動、取得名單、增員接觸、探詢需求，協助主任建立帶人與推動組織成長的核心能力。
+          聚焦高效行銷、增員啟動、取得名單、增員接觸，探詢需求，協助主任建立帶人與推動組織成長的核心能力。
         </p>
         <div class="enter">進入課程介紹 →</div>
       </a>
