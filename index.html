@@ -17,6 +17,9 @@
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
       scroll-behavior: smooth;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
@@ -29,6 +32,8 @@
       overflow-x: hidden;
       min-height: 100vh;
       position: relative;
+      width: 100%;
+      max-width: 100%;
     }
 
     body::before {
@@ -60,13 +65,17 @@
       position: relative;
       z-index: 1;
       width: min(100%, 460px);
+      max-width: 100%;
       margin: 0 auto;
       padding: 22px 14px 40px;
+      overflow-x: hidden;
     }
 
     .hero {
       text-align: center;
       padding: 10px 4px 22px;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .tag {
@@ -85,6 +94,9 @@
         0 0 0 1px rgba(255, 168, 38, 0.08) inset,
         0 0 18px rgba(255, 168, 38, 0.18);
       backdrop-filter: blur(10px);
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
     }
 
     h1 {
@@ -94,6 +106,7 @@
       font-weight: 900;
       letter-spacing: 0.4px;
       text-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+      max-width: 100%;
     }
 
     h1 .accent {
@@ -109,12 +122,16 @@
       color: rgba(238, 246, 255, 0.86);
       font-size: 15px;
       line-height: 1.85;
-      word-break: keep-all;
+      word-break: normal;
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
 
     .layout {
       display: grid;
       gap: 18px;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .panel {
@@ -129,6 +146,7 @@
         inset 0 0 42px rgba(0, 86, 168, 0.16);
       backdrop-filter: blur(14px);
       overflow: hidden;
+      max-width: 100%;
     }
 
     .panel::before {
@@ -146,6 +164,8 @@
       position: relative;
       z-index: 1;
       padding: 18px 14px 18px;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .section-title {
@@ -154,6 +174,7 @@
       line-height: 1.4;
       margin-bottom: 6px;
       color: #ffffff;
+      max-width: 100%;
     }
 
     .section-desc {
@@ -161,6 +182,9 @@
       line-height: 1.8;
       color: rgba(226, 237, 255, 0.74);
       margin-bottom: 16px;
+      max-width: 100%;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .staircase-wrap {
@@ -175,6 +199,9 @@
       box-shadow:
         inset 0 0 40px rgba(0, 0, 0, 0.25),
         inset 0 0 26px rgba(0, 112, 204, 0.12);
+      width: 100%;
+      max-width: 100%;
+      contain: layout paint;
     }
 
     .staircase-wrap::before {
@@ -197,6 +224,7 @@
       display: flex;
       align-items: flex-end;
       gap: 3px;
+      max-width: 100%;
     }
 
     .step-bar {
@@ -210,6 +238,7 @@
         0 0 18px rgba(0, 116, 210, 0.22);
       animation: rise 0.9s ease both;
       transform-origin: bottom;
+      min-width: 0;
     }
 
     .step-bar::after {
@@ -249,6 +278,7 @@
       inset: 0;
       z-index: 2;
       pointer-events: none;
+      max-width: 100%;
     }
 
     .milestone {
@@ -260,6 +290,7 @@
       cursor: pointer;
       text-align: center;
       -webkit-tap-highlight-color: transparent;
+      max-width: 100%;
     }
 
     .milestone-box {
@@ -335,6 +366,9 @@
         0 0 18px rgba(255, 168, 38, 0.18),
         inset 0 0 0 1px rgba(255,255,255,0.05);
       line-height: 1.5;
+      max-width: 100%;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .detail-panel {
@@ -345,6 +379,8 @@
       color: #0b1b38;
       padding: 18px;
       box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .detail-head {
@@ -353,6 +389,13 @@
       justify-content: space-between;
       gap: 12px;
       margin-bottom: 14px;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .detail-title-wrap {
+      min-width: 0;
+      max-width: 100%;
     }
 
     .detail-title-wrap h2 {
@@ -360,6 +403,8 @@
       line-height: 1.2;
       font-weight: 900;
       color: #062a55;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     .detail-badge {
@@ -372,6 +417,8 @@
       font-size: 12px;
       font-weight: 900;
       border: 1px solid rgba(217, 107, 0, 0.12);
+      max-width: 100%;
+      white-space: normal;
     }
 
     .detail-icon {
@@ -394,11 +441,15 @@
       line-height: 1.85;
       font-weight: 600;
       margin-bottom: 15px;
+      max-width: 100%;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .info-list {
       display: grid;
       gap: 10px;
+      max-width: 100%;
     }
 
     .info-box {
@@ -406,6 +457,7 @@
       background: #f3f7ff;
       border-left: 5px solid #ff8a00;
       padding: 13px 14px;
+      max-width: 100%;
     }
 
     .info-box b {
@@ -414,6 +466,7 @@
       font-size: 14px;
       font-weight: 900;
       margin-bottom: 5px;
+      max-width: 100%;
     }
 
     .info-box span {
@@ -422,6 +475,9 @@
       font-size: 14px;
       line-height: 1.75;
       font-weight: 600;
+      max-width: 100%;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .detail-tags {
@@ -429,6 +485,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .detail-tags span {
@@ -439,6 +497,9 @@
       font-size: 12px;
       font-weight: 800;
       border: 1px solid rgba(6, 42, 85, 0.08);
+      max-width: 100%;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .detail-actions {
@@ -446,6 +507,8 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .detail-btn {
@@ -458,6 +521,9 @@
       font-size: 14px;
       font-weight: 900;
       transition: 0.2s ease;
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
     }
 
     .detail-btn.primary {
@@ -477,6 +543,8 @@
       color: rgba(255,255,255,0.56);
       font-size: 13px;
       line-height: 1.7;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     @media (min-width: 768px) {
@@ -504,17 +572,112 @@
       }
     }
 
+    @media (max-width: 767px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+      }
+
+      body {
+        min-width: 0;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 12px;
+        padding-right: 12px;
+        overflow-x: hidden;
+      }
+
+      .layout {
+        width: 100%;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow-x: hidden;
+      }
+
+      .panel,
+      .detail-panel {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .panel-inner {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .staircase-wrap {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .subtitle br {
+        display: none;
+      }
+
+      .subtitle {
+        font-size: 15px;
+        line-height: 1.8;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+      }
+
+      .detail-head {
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .detail-title-wrap {
+        min-width: 0;
+      }
+
+      .detail-title-wrap h2 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .info-box,
+      .info-box span,
+      .detail-intro {
+        max-width: 100%;
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
+
+      .detail-actions {
+        width: 100%;
+      }
+
+      .detail-btn {
+        flex: 1 1 100%;
+        width: 100%;
+      }
+    }
+
     @media (max-width: 420px) {
       .page {
-        padding: 18px 12px 34px;
+        padding: 18px 10px 34px;
       }
 
       h1 {
         font-size: 29px;
       }
 
+      .panel-inner {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
       .milestone-box {
-        min-width: 72px;
+        min-width: 68px;
         padding: 9px 8px;
       }
 
@@ -533,6 +696,30 @@
       .tap-hint {
         font-size: 13px;
         border-radius: 18px;
+      }
+
+      .milestone-manager {
+        left: 78%;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .milestone-director {
+        left: 27%;
+      }
+
+      .milestone-assistant {
+        left: 53%;
+      }
+
+      .milestone-manager {
+        left: 76%;
+      }
+
+      .milestone-box {
+        min-width: 64px;
+        padding-left: 6px;
+        padding-right: 6px;
       }
     }
   </style>
