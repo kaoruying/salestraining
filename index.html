@@ -1,272 +1,656 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>凱基人壽主管課程</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>凱基人壽主管培育地圖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-}
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
 
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
+    body {
+      background:
+        radial-gradient(circle at 12% 10%, rgba(38, 159, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 88% 18%, rgba(0, 217, 255, 0.12), transparent 22%),
+        linear-gradient(160deg, #020b18 0%, #06172f 42%, #0a2346 100%);
+      color: #ffffff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
 
-body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #061b3a 0%, #082b5c 45%, #031226 100%);
-  color: #fff;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 26px 26px;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-.page {
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 56px 24px 42px;
-  position: relative;
-}
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(0, 195, 255, 0.04) 45%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-.glow {
-  position: fixed;
-  width: 280px;
-  height: 280px;
-  background: rgba(255, 170, 50, 0.14);
-  filter: blur(80px);
-  border-radius: 50%;
-  right: -120px;
-  top: 80px;
-  pointer-events: none;
-  z-index: 0;
-}
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 460px);
+      margin: 0 auto;
+      padding: 22px 14px 40px;
+    }
 
-.hero {
-  text-align: center;
-  max-width: 920px;
-  margin: 0 auto 48px;
-  position: relative;
-  z-index: 1;
-}
+    .hero {
+      text-align: center;
+      padding: 10px 4px 22px;
+    }
 
-.tag {
-  display: inline-block;
-  padding: 8px 18px;
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 999px;
-  font-size: 15px;
-  letter-spacing: 2px;
-  color: #ffd28a;
-  margin-bottom: 22px;
-  white-space: nowrap;
-}
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(103, 195, 255, 0.35);
+      background: rgba(10, 42, 80, 0.65);
+      color: #9fdcff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      box-shadow: 0 0 0 1px rgba(0, 180, 255, 0.08) inset, 0 0 18px rgba(0, 149, 255, 0.12);
+      backdrop-filter: blur(10px);
+    }
 
-h1 {
-  font-size: clamp(38px, 7vw, 76px);
-  font-weight: 900;
-  line-height: 1.12;
-  letter-spacing: 2px;
-  text-shadow: 0 8px 28px rgba(0,0,0,0.35);
-}
+    h1 {
+      margin-top: 14px;
+      font-size: 32px;
+      line-height: 1.18;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      text-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
 
-h1 span {
-  color: #ffb13b;
-}
+    h1 .accent {
+      background: linear-gradient(135deg, #d7f1ff, #8fd8ff 45%, #36b6ff 85%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 10px rgba(50, 180, 255, 0.2));
+    }
 
-.subtitle {
-  margin-top: 22px;
-  font-size: clamp(17px, 2.4vw, 22px);
-  line-height: 1.8;
-  color: rgba(255,255,255,0.82);
-  word-break: keep-all;
-}
+    .subtitle {
+      margin-top: 12px;
+      color: rgba(225, 240, 255, 0.82);
+      font-size: 15px;
+      line-height: 1.85;
+      word-break: keep-all;
+    }
 
-.course-grid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  position: relative;
-  z-index: 1;
-}
+    .layout {
+      display: grid;
+      gap: 18px;
+    }
 
-.course-card {
-  text-decoration: none;
-  color: #fff;
-  padding: 30px;
-  min-height: 260px;
-  border-radius: 28px;
-  background: linear-gradient(160deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.26);
-  transition: 0.28s ease;
-  position: relative;
-  overflow: hidden;
-}
+    .panel {
+      position: relative;
+      border-radius: 26px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+      border: 1px solid rgba(122, 200, 255, 0.14);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.30);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
 
-.course-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255,177,59,0.75);
-}
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(0, 183, 255, 0.08), transparent 38%),
+        radial-gradient(circle at 85% 12%, rgba(0, 183, 255, 0.10), transparent 20%);
+      pointer-events: none;
+    }
 
-.icon {
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #ffb13b, #ff7a1a);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  margin-bottom: 24px;
-  box-shadow: 0 10px 24px rgba(255,122,26,0.35);
-}
+    .panel-inner {
+      position: relative;
+      z-index: 1;
+      padding: 18px 14px 18px;
+    }
 
-.course-card h2 {
-  font-size: 28px;
-  margin-bottom: 14px;
-}
+    .section-title {
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
 
-.course-card p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.78);
-}
+    .section-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(216, 232, 255, 0.72);
+      margin-bottom: 16px;
+    }
 
-.enter {
-  margin-top: 28px;
-  display: inline-flex;
-  font-weight: 700;
-  color: #ffd28a;
-}
+    /* 階梯圖 */
+    .staircase-wrap {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(5, 22, 43, 0.56), rgba(7, 29, 56, 0.28));
+      border: 1px solid rgba(120, 200, 255, 0.10);
+    }
 
-.footer {
-  margin-top: 46px;
-  color: rgba(255,255,255,0.55);
-  font-size: 14px;
-  text-align: center;
-}
+    .staircase-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
 
-/* 手機穩定版 */
-@media (max-width: 900px) {
-  .page {
-    padding: 38px 16px 34px;
-  }
+    .stairs {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 230px;
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      padding: 0 0 0 0;
+    }
 
-  .glow {
-    width: 220px;
-    height: 220px;
-    right: -140px;
-    top: 20px;
-    opacity: 0.7;
-  }
+    .step-bar {
+      flex: 1;
+      border-radius: 10px 10px 0 0;
+      background:
+        linear-gradient(180deg, #29c4ff 0%, #1388f0 42%, #0a4dba 100%);
+      position: relative;
+      box-shadow:
+        inset 0 -12px 18px rgba(0, 0, 0, 0.20),
+        0 0 18px rgba(28, 157, 255, 0.10);
+    }
 
-  .hero {
-    margin-bottom: 30px;
-  }
+    .step-bar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,0.22), transparent 45%);
+      border-radius: 10px 10px 0 0;
+    }
 
-  .tag {
-    font-size: 12px;
-    letter-spacing: 1px;
-    padding: 7px 14px;
-  }
+    .bar1 { height: 26px; }
+    .bar2 { height: 44px; }
+    .bar3 { height: 62px; }
+    .bar4 { height: 80px; }
+    .bar5 { height: 102px; }
+    .bar6 { height: 124px; }
+    .bar7 { height: 146px; }
+    .bar8 { height: 168px; }
+    .bar9 { height: 192px; }
+    .bar10 { height: 216px; }
 
-  h1 {
-    font-size: 40px;
-    line-height: 1.18;
-    letter-spacing: 1px;
-  }
+    .tech-line {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
 
-  .subtitle {
-    font-size: 16px;
-    line-height: 1.75;
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .milestone {
+      position: absolute;
+      z-index: 5;
+      transform: translate(-50%, -50%);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: center;
+    }
 
-  .course-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
+    .milestone-box {
+      min-width: 78px;
+      padding: 10px 10px;
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(9, 35, 71, 0.96), rgba(10, 47, 95, 0.86));
+      border: 1px solid rgba(97, 197, 255, 0.36);
+      box-shadow:
+        0 10px 24px rgba(0,0,0,0.30),
+        0 0 0 1px rgba(0, 183, 255, 0.08) inset,
+        0 0 18px rgba(0, 170, 255, 0.16);
+      transition: 0.25s ease;
+      backdrop-filter: blur(10px);
+    }
 
-  .course-card {
-    min-height: auto;
-    padding: 24px;
-    border-radius: 24px;
-  }
+    .milestone.active .milestone-box {
+      transform: translateY(-2px) scale(1.03);
+      border-color: rgba(123, 219, 255, 0.70);
+      box-shadow:
+        0 14px 28px rgba(0,0,0,0.32),
+        0 0 0 1px rgba(0, 183, 255, 0.14) inset,
+        0 0 22px rgba(0, 183, 255, 0.28);
+      background: linear-gradient(160deg, rgba(12, 52, 102, 0.98), rgba(9, 40, 81, 0.90));
+    }
 
-  .course-card:hover {
-    transform: none;
-  }
+    .milestone-name {
+      display: block;
+      font-size: 14px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.2;
+    }
 
-  .icon {
-    width: 52px;
-    height: 52px;
-    font-size: 26px;
-    margin-bottom: 18px;
-  }
+    .milestone-sub {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      color: #8ad9ff;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      line-height: 1.35;
+    }
 
-  .course-card h2 {
-    font-size: 24px;
-  }
+    .milestone-director { left: 28%; top: 73%; }
+    .milestone-assistant { left: 54%; top: 50%; }
+    .milestone-manager { left: 80%; top: 27%; }
 
-  .course-card p {
-    font-size: 15px;
-    line-height: 1.75;
-  }
+    /* 詳細資訊 */
+    .detail-panel {
+      position: relative;
+      z-index: 1;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(250, 253, 255, 0.98), rgba(240, 247, 255, 0.98));
+      color: #0b1b38;
+      padding: 18px;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+    }
 
-  .enter {
-    margin-top: 20px;
-  }
-}
-</style>
+    .detail-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .detail-title-wrap h2 {
+      font-size: 25px;
+      line-height: 1.2;
+      font-weight: 900;
+      color: #0a2f70;
+    }
+
+    .detail-badge {
+      margin-top: 7px;
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #e8f6ff, #eef8ff);
+      color: #117ad7;
+      font-size: 12px;
+      font-weight: 900;
+      border: 1px solid rgba(17, 122, 215, 0.12);
+    }
+
+    .detail-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #24bcff, #0a73ea);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 10px 20px rgba(10,115,234,0.22);
+    }
+
+    .detail-intro {
+      color: #33435f;
+      font-size: 15px;
+      line-height: 1.85;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .info-box {
+      border-radius: 16px;
+      background: #f2f8ff;
+      border-left: 5px solid #1da1ff;
+      padding: 13px 14px;
+    }
+
+    .info-box b {
+      display: block;
+      color: #0a2f70;
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .info-box span {
+      display: block;
+      color: #33435f;
+      font-size: 14px;
+      line-height: 1.75;
+      font-weight: 600;
+    }
+
+    .detail-tags {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .detail-tags span {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #eaf6ff;
+      color: #0c67c6;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .detail-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .detail-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.2s ease;
+    }
+
+    .detail-btn.primary {
+      background: linear-gradient(135deg, #24bcff, #0a73ea);
+      color: #ffffff;
+      box-shadow: 0 10px 18px rgba(10,115,234,0.20);
+    }
+
+    .detail-btn.secondary {
+      background: #eaf4ff;
+      color: #0a2f70;
+    }
+
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+      color: rgba(255,255,255,0.52);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        width: min(100%, 1000px);
+        padding: 28px 20px 42px;
+      }
+
+      .layout {
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: start;
+      }
+
+      .detail-panel {
+        position: sticky;
+        top: 20px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .page {
+        padding: 18px 12px 34px;
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+
+      .milestone-box {
+        min-width: 72px;
+        padding: 9px 8px;
+      }
+
+      .milestone-name {
+        font-size: 13px;
+      }
+
+      .milestone-sub {
+        font-size: 10px;
+      }
+
+      .staircase-wrap {
+        height: 300px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<main class="page">
-  <div class="glow"></div>
+  <main class="page">
+    <section class="hero">
+      <div class="tag">凱基人壽主管培育地圖</div>
+      <h1>
+        科技感呈現的<br>
+        <span class="accent">晉升階梯</span>
+      </h1>
+      <p class="subtitle">
+        從主任、襄理到經理，以晉升階梯呈現主管培育路徑。<br>
+        點選階梯節點，即可查看各職級訓練簡介。
+      </p>
+    </section>
 
-  <section class="hero">
-    <div class="tag">KGI LIFE TRAINING PROGRAM</div>
+    <div class="layout">
+      <section class="panel">
+        <div class="panel-inner">
+          <div class="section-title">晉升階梯</div>
+          <div class="section-desc">
+            由下而上，代表從帶人起步，到團隊帶動，再到經營領導的能力進程。
+          </div>
 
-    <h1>凱基人壽<br><span>主管課程</span></h1>
+          <div class="staircase-wrap">
+            <div class="stairs">
+              <div class="step-bar bar1"></div>
+              <div class="step-bar bar2"></div>
+              <div class="step-bar bar3"></div>
+              <div class="step-bar bar4"></div>
+              <div class="step-bar bar5"></div>
+              <div class="step-bar bar6"></div>
+              <div class="step-bar bar7"></div>
+              <div class="step-bar bar8"></div>
+              <div class="step-bar bar9"></div>
+              <div class="step-bar bar10"></div>
+            </div>
 
-    <p class="subtitle">
-      從主任、襄理到經理，依職涯階段打造完整培育路徑，協助業務夥伴累積專業、提升管理力，穩健邁向下一階段。
-    </p>
-  </section>
+            <svg class="tech-line" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="lineGlow" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#34c3ff" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#9ce5ff" stop-opacity="1"/>
+                </linearGradient>
+              </defs>
+              <polyline
+                points="12,82 28,73 54,50 80,27 92,18"
+                fill="none"
+                stroke="url(#lineGlow)"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
 
-  <section class="course-grid">
-    <a href="https://kaoruying.github.io/astraning/" class="course-card">
-      <div class="icon">🚀</div>
-      <h2>業務主任課程</h2>
-      <p>聚焦高效行銷、增員啟動、取得名單、增員接觸、探詢需求，協助主任建立帶人與推動組織成長的核心能力。</p>
-      <div class="enter">進入課程介紹 →</div>
-    </a>
+            <button class="milestone milestone-director active" data-role="director" aria-label="主任">
+              <div class="milestone-box">
+                <span class="milestone-name">主任</span>
+                <span class="milestone-sub">帶人起步</span>
+              </div>
+            </button>
 
-    <a href="assistant-manager.html" class="course-card">
-      <div class="icon">📈</div>
-      <h2>業務襄理課程</h2>
-      <p>強化團隊經營、聚焦輔導、活動管理與主管培育能力，協助襄理從個人帶動走向組織擴展。</p>
-      <div class="enter">進入課程介紹 →</div>
-    </a>
+            <button class="milestone milestone-assistant" data-role="assistant" aria-label="襄理">
+              <div class="milestone-box">
+                <span class="milestone-name">襄理</span>
+                <span class="milestone-sub">團隊帶動</span>
+              </div>
+            </button>
 
-    <a href="manager.html" class="course-card">
-      <div class="icon">🏆</div>
-      <h2>業務經理課程</h2>
-      <p>培養策略思維、經營視角與領導影響力，協助經理掌握組織發展與績效推進關鍵。</p>
-      <div class="enter">進入課程介紹 →</div>
-    </a>
-  </section>
+            <button class="milestone milestone-manager" data-role="manager" aria-label="經理">
+              <div class="milestone-box">
+                <span class="milestone-name">經理</span>
+                <span class="milestone-sub">經營領導</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
 
-  <div class="footer">
-    凱基人壽｜業務訓練部
-  </div>
-</main>
+      <section>
+        <div id="detailPanel" class="detail-panel"></div>
+      </section>
+    </div>
+
+    <div class="footer">
+      凱基人壽｜業務訓練部
+    </div>
+  </main>
+
+  <script>
+    const roleData = {
+      director: {
+        icon: "🚀",
+        title: "業務主任課程",
+        badge: "增員實戰起步",
+        intro: "主任階段的關鍵，在於從個人業績延伸到帶人與增員推進。課程聚焦高效行銷、增員啟動、取得名單、增員接觸與探詢需求，協助主任建立帶人與推動組織成長的核心能力。",
+        target: "適合剛晉升主任，準備啟動增員與帶人基本功的夥伴。",
+        focus: "高效行銷、增員啟動、取得名單、增員接觸、探詢需求。",
+        result: "學完後可更清楚掌握主任在增員流程中的角色與推進做法。",
+        tags: ["高效行銷", "增員啟動", "取得名單", "增員接觸", "探詢需求"],
+        primaryText: "查看主任課程",
+        primaryLink: "https://kaoruying.github.io/astraning/"
+      },
+      assistant: {
+        icon: "📈",
+        title: "業務襄理課程",
+        badge: "團隊經營進階",
+        intro: "襄理課程聚焦團隊經營、聚焦輔導、活動管理與主管培育能力，協助襄理從個人帶動走向組織擴展，建立更穩定的團隊發展動能。",
+        target: "適合已具備基本帶人能力，準備加強團隊經營與主管育成的襄理。",
+        focus: "團隊經營、聚焦輔導、活動管理、主管培育。",
+        result: "學完後可更有系統地陪跑團隊，提升組織延續與成長力。",
+        tags: ["團隊經營", "聚焦輔導", "活動管理", "主管培育"],
+        primaryText: "查看襄理課程",
+        primaryLink: "assistant-manager.html"
+      },
+      manager: {
+        icon: "🏆",
+        title: "業務經理課程",
+        badge: "經營領導升級",
+        intro: "經理課程聚焦策略思維、經營視角、領導影響力與績效推進，協助經理從管理單位走向經營單位，掌握組織長期發展關鍵。",
+        target: "適合已進入經營角色，需要提升策略視野與領導能力的經理。",
+        focus: "策略思維、經營視角、領導影響力、績效推進。",
+        result: "學完後可更清楚掌握經理在組織發展中的核心定位。",
+        tags: ["策略思維", "經營視角", "領導力", "績效推進"],
+        primaryText: "查看經理課程",
+        primaryLink: "manager.html"
+      }
+    };
+
+    const detailPanel = document.getElementById("detailPanel");
+    const milestones = document.querySelectorAll(".milestone");
+
+    function renderDetail(roleKey) {
+      const data = roleData[roleKey];
+
+      detailPanel.innerHTML = `
+        <div class="detail-head">
+          <div class="detail-title-wrap">
+            <h2>${data.title}</h2>
+            <div class="detail-badge">${data.badge}</div>
+          </div>
+          <div class="detail-icon">${data.icon}</div>
+        </div>
+
+        <div class="detail-intro">${data.intro}</div>
+
+        <div class="info-list">
+          <div class="info-box">
+            <b>適合對象</b>
+            <span>${data.target}</span>
+          </div>
+          <div class="info-box">
+            <b>訓練重點</b>
+            <span>${data.focus}</span>
+          </div>
+          <div class="info-box">
+            <b>學完收穫</b>
+            <span>${data.result}</span>
+          </div>
+        </div>
+
+        <div class="detail-tags">
+          ${data.tags.map(tag => `<span>${tag}</span>`).join("")}
+        </div>
+
+        <div class="detail-actions">
+          <a class="detail-btn primary" href="${data.primaryLink}">${data.primaryText}</a>
+          <a class="detail-btn secondary" href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">回到上方</a>
+        </div>
+      `;
+    }
+
+    milestones.forEach(btn => {
+      btn.addEventListener("click", () => {
+        milestones.forEach(item => item.classList.remove("active"));
+        btn.classList.add("active");
+        renderDetail(btn.dataset.role);
+      });
+    });
+
+    renderDetail("director");
+  </script>
 </body>
 </html>
