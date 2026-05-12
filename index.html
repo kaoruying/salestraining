@@ -17,23 +17,18 @@
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
       scroll-behavior: smooth;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #ffffff;
       background:
         radial-gradient(circle at 12% 8%, rgba(0, 79, 158, 0.42), transparent 26%),
         radial-gradient(circle at 88% 16%, rgba(255, 168, 38, 0.18), transparent 24%),
         radial-gradient(circle at 50% 88%, rgba(0, 118, 190, 0.18), transparent 30%),
         linear-gradient(160deg, #020b1f 0%, #003b7a 42%, #001a3a 72%, #020814 100%);
-      color: #ffffff;
-      overflow-x: hidden;
-      min-height: 100vh;
       position: relative;
-      width: 100%;
-      max-width: 100%;
     }
 
     body::before {
@@ -64,18 +59,14 @@
     .page {
       position: relative;
       z-index: 1;
-      width: min(100%, 460px);
-      max-width: 100%;
+      width: min(100%, 470px);
       margin: 0 auto;
       padding: 22px 14px 40px;
-      overflow-x: hidden;
     }
 
     .hero {
       text-align: center;
       padding: 10px 4px 22px;
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     .tag {
@@ -94,9 +85,6 @@
         0 0 0 1px rgba(255, 168, 38, 0.08) inset,
         0 0 18px rgba(255, 168, 38, 0.18);
       backdrop-filter: blur(10px);
-      max-width: 100%;
-      white-space: normal;
-      text-align: center;
     }
 
     h1 {
@@ -106,7 +94,6 @@
       font-weight: 900;
       letter-spacing: 0.4px;
       text-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
-      max-width: 100%;
     }
 
     h1 .accent {
@@ -122,16 +109,12 @@
       color: rgba(238, 246, 255, 0.86);
       font-size: 15px;
       line-height: 1.85;
-      word-break: normal;
-      overflow-wrap: break-word;
-      max-width: 100%;
+      word-break: keep-all;
     }
 
     .layout {
       display: grid;
       gap: 18px;
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     .panel {
@@ -146,7 +129,6 @@
         inset 0 0 42px rgba(0, 86, 168, 0.16);
       backdrop-filter: blur(14px);
       overflow: hidden;
-      max-width: 100%;
     }
 
     .panel::before {
@@ -164,8 +146,6 @@
       position: relative;
       z-index: 1;
       padding: 18px 14px 18px;
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     .section-title {
@@ -174,7 +154,6 @@
       line-height: 1.4;
       margin-bottom: 6px;
       color: #ffffff;
-      max-width: 100%;
     }
 
     .section-desc {
@@ -182,14 +161,11 @@
       line-height: 1.8;
       color: rgba(226, 237, 255, 0.74);
       margin-bottom: 16px;
-      max-width: 100%;
-      word-break: normal;
-      overflow-wrap: break-word;
     }
 
     .staircase-wrap {
       position: relative;
-      height: 320px;
+      height: 340px;
       overflow: hidden;
       border-radius: 22px;
       background:
@@ -199,9 +175,6 @@
       box-shadow:
         inset 0 0 40px rgba(0, 0, 0, 0.25),
         inset 0 0 26px rgba(0, 112, 204, 0.12);
-      width: 100%;
-      max-width: 100%;
-      contain: layout paint;
     }
 
     .staircase-wrap::before {
@@ -220,11 +193,10 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: 230px;
+      height: 250px;
       display: flex;
       align-items: flex-end;
       gap: 3px;
-      max-width: 100%;
     }
 
     .step-bar {
@@ -238,7 +210,6 @@
         0 0 18px rgba(0, 116, 210, 0.22);
       animation: rise 0.9s ease both;
       transform-origin: bottom;
-      min-width: 0;
     }
 
     .step-bar::after {
@@ -262,23 +233,24 @@
       }
     }
 
-    .bar1 { height: 26px; animation-delay: 0.05s; }
-    .bar2 { height: 44px; animation-delay: 0.10s; }
-    .bar3 { height: 62px; animation-delay: 0.15s; }
-    .bar4 { height: 80px; animation-delay: 0.20s; }
-    .bar5 { height: 102px; animation-delay: 0.25s; }
-    .bar6 { height: 124px; animation-delay: 0.30s; }
-    .bar7 { height: 146px; animation-delay: 0.35s; }
-    .bar8 { height: 168px; animation-delay: 0.40s; }
-    .bar9 { height: 192px; animation-delay: 0.45s; }
-    .bar10 { height: 216px; animation-delay: 0.50s; }
+    .bar1 { height: 24px; animation-delay: 0.05s; }
+    .bar2 { height: 40px; animation-delay: 0.10s; }
+    .bar3 { height: 58px; animation-delay: 0.15s; }
+    .bar4 { height: 76px; animation-delay: 0.20s; }
+    .bar5 { height: 96px; animation-delay: 0.25s; }
+    .bar6 { height: 118px; animation-delay: 0.30s; }
+    .bar7 { height: 140px; animation-delay: 0.35s; }
+    .bar8 { height: 164px; animation-delay: 0.40s; }
+    .bar9 { height: 188px; animation-delay: 0.45s; }
+    .bar10 { height: 212px; animation-delay: 0.50s; }
+    .bar11 { height: 236px; animation-delay: 0.55s; }
+    .bar12 { height: 250px; animation-delay: 0.60s; }
 
     .tech-line {
       position: absolute;
       inset: 0;
       z-index: 2;
       pointer-events: none;
-      max-width: 100%;
     }
 
     .milestone {
@@ -290,11 +262,10 @@
       cursor: pointer;
       text-align: center;
       -webkit-tap-highlight-color: transparent;
-      max-width: 100%;
     }
 
     .milestone-box {
-      min-width: 78px;
+      min-width: 82px;
       padding: 10px 10px;
       border-radius: 16px;
       background:
@@ -337,20 +308,10 @@
       line-height: 1.35;
     }
 
-    .milestone-director {
-      left: 28%;
-      top: 73%;
-    }
-
-    .milestone-assistant {
-      left: 54%;
-      top: 50%;
-    }
-
-    .milestone-manager {
-      left: 80%;
-      top: 27%;
-    }
+    .milestone-director { left: 22%; top: 76%; }
+    .milestone-assistant { left: 44%; top: 59%; }
+    .milestone-manager { left: 66%; top: 40%; }
+    .milestone-branch { left: 84%; top: 22%; }
 
     .tap-hint {
       margin-top: 14px;
@@ -366,9 +327,6 @@
         0 0 18px rgba(255, 168, 38, 0.18),
         inset 0 0 0 1px rgba(255,255,255,0.05);
       line-height: 1.5;
-      max-width: 100%;
-      word-break: normal;
-      overflow-wrap: break-word;
     }
 
     .detail-panel {
@@ -379,8 +337,6 @@
       color: #0b1b38;
       padding: 18px;
       box-shadow: 0 18px 42px rgba(0,0,0,0.28);
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     .detail-head {
@@ -389,13 +345,6 @@
       justify-content: space-between;
       gap: 12px;
       margin-bottom: 14px;
-      max-width: 100%;
-      min-width: 0;
-    }
-
-    .detail-title-wrap {
-      min-width: 0;
-      max-width: 100%;
     }
 
     .detail-title-wrap h2 {
@@ -403,8 +352,6 @@
       line-height: 1.2;
       font-weight: 900;
       color: #062a55;
-      word-break: break-word;
-      overflow-wrap: break-word;
     }
 
     .detail-badge {
@@ -417,8 +364,6 @@
       font-size: 12px;
       font-weight: 900;
       border: 1px solid rgba(217, 107, 0, 0.12);
-      max-width: 100%;
-      white-space: normal;
     }
 
     .detail-icon {
@@ -441,15 +386,11 @@
       line-height: 1.85;
       font-weight: 600;
       margin-bottom: 15px;
-      max-width: 100%;
-      word-break: normal;
-      overflow-wrap: break-word;
     }
 
     .info-list {
       display: grid;
       gap: 10px;
-      max-width: 100%;
     }
 
     .info-box {
@@ -457,7 +398,6 @@
       background: #f3f7ff;
       border-left: 5px solid #ff8a00;
       padding: 13px 14px;
-      max-width: 100%;
     }
 
     .info-box b {
@@ -466,7 +406,6 @@
       font-size: 14px;
       font-weight: 900;
       margin-bottom: 5px;
-      max-width: 100%;
     }
 
     .info-box span {
@@ -475,9 +414,6 @@
       font-size: 14px;
       line-height: 1.75;
       font-weight: 600;
-      max-width: 100%;
-      word-break: normal;
-      overflow-wrap: break-word;
     }
 
     .detail-tags {
@@ -485,8 +421,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     .detail-tags span {
@@ -497,9 +431,6 @@
       font-size: 12px;
       font-weight: 800;
       border: 1px solid rgba(6, 42, 85, 0.08);
-      max-width: 100%;
-      word-break: normal;
-      overflow-wrap: break-word;
     }
 
     .detail-actions {
@@ -507,8 +438,6 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     .detail-btn {
@@ -521,9 +450,6 @@
       font-size: 14px;
       font-weight: 900;
       transition: 0.2s ease;
-      max-width: 100%;
-      white-space: normal;
-      text-align: center;
     }
 
     .detail-btn.primary {
@@ -543,18 +469,16 @@
       color: rgba(255,255,255,0.56);
       font-size: 13px;
       line-height: 1.7;
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     @media (min-width: 768px) {
       .page {
-        width: min(100%, 1000px);
+        width: min(100%, 1050px);
         padding: 28px 20px 42px;
       }
 
       .layout {
-        grid-template-columns: 1.05fr 0.95fr;
+        grid-template-columns: 1.08fr 0.92fr;
         align-items: start;
       }
 
@@ -564,7 +488,7 @@
       }
 
       h1 {
-        font-size: 48px;
+        font-size: 50px;
       }
 
       .subtitle {
@@ -572,112 +496,25 @@
       }
     }
 
-    @media (max-width: 767px) {
-      html,
-      body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden !important;
-      }
-
-      body {
-        min-width: 0;
-      }
-
-      .page {
-        width: 100%;
-        max-width: 460px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 12px;
-        padding-right: 12px;
-        overflow-x: hidden;
-      }
-
-      .layout {
-        width: 100%;
-        max-width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        overflow-x: hidden;
-      }
-
-      .panel,
-      .detail-panel {
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .panel-inner {
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .staircase-wrap {
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-      }
-
-      .subtitle br {
-        display: none;
-      }
-
-      .subtitle {
-        font-size: 15px;
-        line-height: 1.8;
-        word-break: normal !important;
-        overflow-wrap: break-word !important;
-      }
-
-      .detail-head {
-        max-width: 100%;
-        min-width: 0;
-      }
-
-      .detail-title-wrap {
-        min-width: 0;
-      }
-
-      .detail-title-wrap h2 {
-        word-break: break-word;
-        overflow-wrap: break-word;
-      }
-
-      .info-box,
-      .info-box span,
-      .detail-intro {
-        max-width: 100%;
-        word-break: normal;
-        overflow-wrap: break-word;
-      }
-
-      .detail-actions {
-        width: 100%;
-      }
-
-      .detail-btn {
-        flex: 1 1 100%;
-        width: 100%;
-      }
-    }
-
     @media (max-width: 420px) {
       .page {
-        padding: 18px 10px 34px;
+        padding: 18px 12px 34px;
       }
 
       h1 {
         font-size: 29px;
       }
 
-      .panel-inner {
-        padding-left: 12px;
-        padding-right: 12px;
+      .staircase-wrap {
+        height: 325px;
+      }
+
+      .stairs {
+        height: 238px;
       }
 
       .milestone-box {
-        min-width: 68px;
+        min-width: 74px;
         padding: 9px 8px;
       }
 
@@ -689,37 +526,13 @@
         font-size: 10px;
       }
 
-      .staircase-wrap {
-        height: 300px;
+      .milestone-branch {
+        left: 83%;
       }
 
       .tap-hint {
         font-size: 13px;
         border-radius: 18px;
-      }
-
-      .milestone-manager {
-        left: 78%;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .milestone-director {
-        left: 27%;
-      }
-
-      .milestone-assistant {
-        left: 53%;
-      }
-
-      .milestone-manager {
-        left: 76%;
-      }
-
-      .milestone-box {
-        min-width: 64px;
-        padding-left: 6px;
-        padding-right: 6px;
       }
     }
   </style>
@@ -736,7 +549,7 @@
       </h1>
 
       <p class="subtitle">
-        從主任、襄理到經理，打造每一步都接得上的主管培育路徑。<br>
+        從業務主任、業務襄理、業務經理到處經理，打造每一步都接得上的主管培育路徑。<br>
         讓晉升不只是職級改變，而是能力真正升級。
       </p>
     </section>
@@ -746,7 +559,7 @@
         <div class="panel-inner">
           <div class="section-title">晉升階梯</div>
           <div class="section-desc">
-            由下而上，代表從帶人起步，到團隊帶動，再到經營領導的能力進程。
+            由下而上，代表從帶人起步、團隊帶動、經營管理，到領導營運的能力進程。
           </div>
 
           <div class="staircase-wrap">
@@ -761,18 +574,20 @@
               <div class="step-bar bar8"></div>
               <div class="step-bar bar9"></div>
               <div class="step-bar bar10"></div>
+              <div class="step-bar bar11"></div>
+              <div class="step-bar bar12"></div>
             </div>
 
             <svg class="tech-line" viewBox="0 0 100 100" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="lineGlow" x1="0%" y1="100%" x2="100%" y2="0%">
                   <stop offset="0%" stop-color="#6fc7ff" stop-opacity="0.85"/>
-                  <stop offset="55%" stop-color="#ffcf6b" stop-opacity="0.95"/>
+                  <stop offset="48%" stop-color="#ffcf6b" stop-opacity="0.95"/>
                   <stop offset="100%" stop-color="#ff8a00" stop-opacity="1"/>
                 </linearGradient>
               </defs>
               <polyline
-                points="12,82 28,73 54,50 80,27 92,18"
+                points="10,84 22,76 44,59 66,40 84,22 94,16"
                 fill="none"
                 stroke="url(#lineGlow)"
                 stroke-width="1.6"
@@ -781,30 +596,37 @@
               />
             </svg>
 
-            <button class="milestone milestone-director active" data-role="director" aria-label="主任">
+            <button class="milestone milestone-director active" data-role="director" aria-label="業務主任">
               <div class="milestone-box">
-                <span class="milestone-name">主任</span>
+                <span class="milestone-name">業務主任</span>
                 <span class="milestone-sub">帶人起步</span>
               </div>
             </button>
 
-            <button class="milestone milestone-assistant" data-role="assistant" aria-label="襄理">
+            <button class="milestone milestone-assistant" data-role="assistant" aria-label="業務襄理">
               <div class="milestone-box">
-                <span class="milestone-name">襄理</span>
+                <span class="milestone-name">業務襄理</span>
                 <span class="milestone-sub">團隊帶動</span>
               </div>
             </button>
 
-            <button class="milestone milestone-manager" data-role="manager" aria-label="經理">
+            <button class="milestone milestone-manager" data-role="manager" aria-label="業務經理">
               <div class="milestone-box">
-                <span class="milestone-name">經理</span>
-                <span class="milestone-sub">經營領導</span>
+                <span class="milestone-name">業務經理</span>
+                <span class="milestone-sub">經營管理</span>
+              </div>
+            </button>
+
+            <button class="milestone milestone-branch" data-role="branch" aria-label="處經理">
+              <div class="milestone-box">
+                <span class="milestone-name">處經理</span>
+                <span class="milestone-sub">領導營運</span>
               </div>
             </button>
           </div>
 
           <div class="tap-hint">
-            👆 點選「主任／襄理／經理」，查看各職級訓練簡介
+            👆 點選「業務主任／業務襄理／業務經理／處經理」，查看各職級訓練簡介
           </div>
         </div>
       </section>
@@ -825,12 +647,12 @@
         icon: "🚀",
         title: "業務主任課程",
         badge: "增員實戰起步",
-        intro: "主任階段的關鍵，在於從個人業績延伸到帶人與增員推進。課程聚焦高效行銷、增員啟動、取得名單、增員接觸與探詢需求，協助主任建立帶人與推動組織成長的核心能力。",
-        target: "適合剛晉升主任，準備啟動增員與帶人基本功的夥伴。",
+        intro: "業務主任階段的關鍵，在於從個人業績延伸到帶人與增員推進。課程聚焦高效行銷、增員啟動、取得名單、增員接觸與探詢需求，協助主任建立帶人與推動組織成長的核心能力。",
+        target: "適合剛晉升業務主任，準備啟動增員與帶人基本功的夥伴。",
         focus: "高效行銷、增員啟動、取得名單、增員接觸、探詢需求。",
         result: "學完後可更清楚掌握主任在增員流程中的角色與推進做法。",
         tags: ["高效行銷", "增員啟動", "取得名單", "增員接觸", "探詢需求"],
-        primaryText: "查看主任課程",
+        primaryText: "查看業務主任課程",
         primaryLink: "https://kaoruying.github.io/astraning/"
       },
 
@@ -838,26 +660,39 @@
         icon: "📈",
         title: "業務襄理課程",
         badge: "團隊經營進階",
-        intro: "襄理課程聚焦團隊經營、聚焦輔導、活動管理與主管培育能力，協助襄理從個人帶動走向組織擴展，建立更穩定的團隊發展動能。",
-        target: "適合已具備基本帶人能力，準備加強團隊經營與主管育成的襄理。",
+        intro: "業務襄理階段的重點，是從個人帶動走向團隊經營。課程聚焦輔導陪跑、活動管理、團隊經營與主管培育能力，協助襄理建立更穩定的組織發展動能。",
+        target: "適合已具備基本帶人能力，準備加強團隊經營與主管育成的業務襄理。",
         focus: "團隊經營、聚焦輔導、活動管理、主管培育。",
         result: "學完後可更有系統地陪跑團隊，提升組織延續與成長力。",
         tags: ["團隊經營", "聚焦輔導", "活動管理", "主管育成"],
-        primaryText: "查看襄理課程",
+        primaryText: "查看業務襄理課程",
         primaryLink: "https://kaoruying.github.io/sastraining/"
       },
 
       manager: {
         icon: "🏆",
         title: "業務經理課程",
-        badge: "經營領導升級",
-        intro: "經理課程聚焦策略思維、經營視角、領導影響力與績效推進，協助經理從管理單位走向經營單位，掌握組織長期發展關鍵。",
-        target: "適合已進入經營角色，需要提升策略視野與領導能力的經理。",
-        focus: "策略思維、經營視角、領導影響力、績效推進。",
-        result: "學完後可更清楚掌握經理在組織發展中的核心定位。",
-        tags: ["策略思維", "經營視角", "領導力", "績效推進"],
-        primaryText: "查看經理課程",
+        badge: "經營管理升級",
+        intro: "業務經理階段的核心，是從團隊帶動走向經營管理。課程聚焦經營思維、績效推進、活動量管理與團隊帶動，協助經理從管理角色升級為經營者。",
+        target: "適合已晉升業務經理，正在建立經營管理節奏與團隊推進能力的主管。",
+        focus: "經營管理、績效推進、團隊帶動、活動量管理、主管角色升級。",
+        result: "學完後可更清楚掌握經理如何推動團隊經營，並帶動組織穩定成長。",
+        tags: ["經營管理", "績效推進", "活動量管理", "團隊帶動", "角色升級"],
+        primaryText: "查看業務經理課程",
         primaryLink: "https://kaoruying.github.io/umtraining/"
+      },
+
+      branch: {
+        icon: "👑",
+        title: "處經理課程",
+        badge: "領導營運升級",
+        intro: "處經理階段的關鍵，是從單一團隊管理，走向通訊處整體營運。課程聚焦組織發展、領導影響力、經營策略與人才梯隊培育，協助處經理提升單位長期發展動能。",
+        target: "適合已擔任處經理，或正在強化通訊處營運視角與領導格局的主管。",
+        focus: "領導營運、組織發展、經營策略、人才梯隊、單位成長動能。",
+        result: "學完後可更具經營者視角，掌握通訊處發展方向、團隊凝聚與人才培育關鍵。",
+        tags: ["領導營運", "組織發展", "經營策略", "人才梯隊", "通訊處經營"],
+        primaryText: "查看處經理課程",
+        primaryLink: "https://kaoruying.github.io/dmtraining/"
       }
     };
 
