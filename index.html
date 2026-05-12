@@ -123,7 +123,9 @@
       color: rgba(238, 246, 255, 0.86);
       font-size: 15px;
       line-height: 1.85;
-      word-break: keep-all;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: anywhere;
     }
 
     .layout {
@@ -176,9 +178,11 @@
     .section-desc {
       font-size: 14px;
       line-height: 1.8;
-      color: rgba(226, 237, 255, 0.74);
+      color: rgba(226, 237, 255, 0.78);
       margin-bottom: 16px;
-      word-break: keep-all;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: anywhere;
     }
 
     .staircase-wrap {
@@ -346,16 +350,23 @@
       background: linear-gradient(135deg, rgba(255, 168, 38, 0.24), rgba(255, 123, 0, 0.13));
       border: 1px solid rgba(255, 196, 100, 0.46);
       color: #ffd28a;
-      font-size: 14px;
-      font-weight: 900;
       text-align: center;
       box-shadow:
         0 0 18px rgba(255, 168, 38, 0.18),
         inset 0 0 0 1px rgba(255,255,255,0.05);
-      line-height: 1.7;
-      white-space: normal;
-      word-break: normal;
-      overflow-wrap: anywhere;
+      line-height: 1.5;
+    }
+
+    .tap-main {
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .tap-sub {
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(255, 226, 170, 0.92);
     }
 
     .detail-panel {
@@ -605,10 +616,12 @@
         top: 22%;
       }
 
-      .tap-hint {
+      .tap-main {
         font-size: 13px;
-        border-radius: 18px;
-        line-height: 1.7;
+      }
+
+      .tap-sub {
+        font-size: 12px;
       }
     }
   </style>
@@ -634,8 +647,10 @@
       <section class="panel">
         <div class="panel-inner">
           <div class="section-title">晉升階梯</div>
+
           <div class="section-desc">
-            由下而上，代表從帶人起步、團隊帶動、經營管理，到領導營運的能力進程。
+            由下而上，對應主管能力四階段：<br>
+            帶人起步、團隊帶動、經營管理、領導營運。
           </div>
 
           <div class="staircase-wrap">
@@ -702,8 +717,8 @@
           </div>
 
           <div class="tap-hint">
-            👆 請點選上方職級<br>
-            查看各職級訓練簡介
+            <div class="tap-main">👆 請點選上方職級</div>
+            <div class="tap-sub">查看各職級訓練簡介</div>
           </div>
         </div>
       </section>
