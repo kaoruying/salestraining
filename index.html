@@ -198,6 +198,7 @@
       box-shadow:
         inset 0 0 40px rgba(0, 0, 0, 0.25),
         inset 0 0 26px rgba(0, 112, 204, 0.12);
+      scroll-margin-top: 18px;
     }
 
     .staircase-wrap::before {
@@ -638,7 +639,7 @@
       </h1>
 
       <p class="subtitle">
-        從業務主任、業務襄理、業務經理到處經理，打造每一步都接得上的主管培育路徑。<br>
+        晉升有路徑，能力有接續，主管養成不斷線。<br>
         讓晉升不只是職級改變，而是能力真正升級。
       </p>
     </section>
@@ -653,7 +654,7 @@
             帶人起步、團隊帶動、經營管理、領導營運。
           </div>
 
-          <div class="staircase-wrap">
+          <div id="staircaseMap" class="staircase-wrap">
             <div class="stairs">
               <div class="step-bar bar1"></div>
               <div class="step-bar bar2"></div>
@@ -828,7 +829,7 @@
 
         <div class="detail-actions">
           <a class="detail-btn primary" href="${data.primaryLink}">${data.primaryText}</a>
-          <a class="detail-btn secondary" href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">回到上方</a>
+          <a class="detail-btn secondary" href="#staircaseMap" onclick="document.getElementById('staircaseMap').scrollIntoView({behavior:'smooth', block:'center'}); return false;">回到晉升階梯</a>
         </div>
       `;
     }
