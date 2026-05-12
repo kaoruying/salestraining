@@ -342,7 +342,7 @@
     .tap-hint {
       margin-top: 14px;
       padding: 12px 14px;
-      border-radius: 999px;
+      border-radius: 20px;
       background: linear-gradient(135deg, rgba(255, 168, 38, 0.24), rgba(255, 123, 0, 0.13));
       border: 1px solid rgba(255, 196, 100, 0.46);
       color: #ffd28a;
@@ -352,8 +352,10 @@
       box-shadow:
         0 0 18px rgba(255, 168, 38, 0.18),
         inset 0 0 0 1px rgba(255,255,255,0.05);
-      line-height: 1.5;
-      word-break: keep-all;
+      line-height: 1.7;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: anywhere;
     }
 
     .detail-panel {
@@ -366,6 +368,7 @@
       padding: 18px;
       box-shadow: 0 18px 42px rgba(0,0,0,0.28);
       overflow-x: hidden;
+      scroll-margin-top: 16px;
     }
 
     .detail-head {
@@ -605,6 +608,7 @@
       .tap-hint {
         font-size: 13px;
         border-radius: 18px;
+        line-height: 1.7;
       }
     }
   </style>
@@ -698,7 +702,8 @@
           </div>
 
           <div class="tap-hint">
-            👆 請點選「業務主任／業務襄理／業務經理／處經理」，查看各職級訓練簡介
+            👆 請點選「業務主任／業務襄理／業務經理／處經理」<br>
+            查看各職級訓練簡介
           </div>
         </div>
       </section>
@@ -813,11 +818,22 @@
       `;
     }
 
+    function scrollToDetail() {
+      setTimeout(() => {
+        detailPanel.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 80);
+    }
+
     milestones.forEach(btn => {
       btn.addEventListener("click", () => {
         milestones.forEach(item => item.classList.remove("active"));
         btn.classList.add("active");
+
         renderDetail(btn.dataset.role);
+        scrollToDetail();
       });
     });
 
