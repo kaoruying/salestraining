@@ -3,856 +3,753 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>凱基人壽主管培育地圖</title>
+  <title>處經理經營升級</title>
 
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
     }
 
-    html {
+    html,
+    body {
       width: 100%;
       max-width: 100%;
       overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
       scroll-behavior: smooth;
     }
 
     body {
-      width: 100%;
-      max-width: 100%;
-      min-height: 100vh;
-      overflow-x: hidden;
-      color: #ffffff;
-      background:
-        radial-gradient(circle at 12% 8%, rgba(0, 79, 158, 0.42), transparent 26%),
-        radial-gradient(circle at 88% 16%, rgba(255, 168, 38, 0.18), transparent 24%),
-        radial-gradient(circle at 50% 88%, rgba(0, 118, 190, 0.18), transparent 30%),
-        linear-gradient(160deg, #020b1f 0%, #003b7a 42%, #001a3a 72%, #020814 100%);
-      position: relative;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background: #f3f7fb;
+      color: #06245a;
+      line-height: 1.65;
     }
 
-    img,
-    svg,
-    canvas,
-    video {
-      max-width: 100%;
+    h1, h2, h3, p, div, span, li {
+      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(rgba(0, 140, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 140, 255, 0.045) 1px, transparent 1px);
-      background-size: 28px 28px, 28px 28px, 112px 112px, 112px 112px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(120deg, transparent 0%, rgba(0, 133, 210, 0.09) 42%, transparent 74%),
-        linear-gradient(20deg, transparent 0%, rgba(255, 168, 38, 0.035) 50%, transparent 78%);
-      pointer-events: none;
-      z-index: 0;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .page {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 470px);
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 22px 14px 40px;
-      overflow-x: hidden;
+      width: 100%;
+      overflow: hidden;
     }
 
     .hero {
-      text-align: center;
-      padding: 10px 4px 22px;
+      position: relative;
+      padding: 46px 18px 38px;
+      background:
+        radial-gradient(circle at -10% 10%, rgba(245, 164, 0, 0.22), transparent 42%),
+        linear-gradient(135deg, #ffffff 0%, #eef4fb 55%, #dfeaf6 100%);
+      overflow: hidden;
     }
 
-    .tag {
+    .hero-inner {
+      width: min(1040px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 8px 14px;
+      gap: 8px;
+      padding: 7px 13px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 196, 100, 0.48);
-      background: rgba(255, 168, 38, 0.12);
-      color: #ffd28a;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      box-shadow:
-        0 0 0 1px rgba(255, 168, 38, 0.08) inset,
-        0 0 18px rgba(255, 168, 38, 0.18);
-      backdrop-filter: blur(10px);
+      background: #ffffff;
+      border: 1px solid rgba(6, 36, 90, 0.12);
+      color: #0b4f9f;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      box-shadow: 0 8px 22px rgba(6, 36, 90, 0.08);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      min-width: 8px;
+      border-radius: 50%;
+      background: #f5a400;
     }
 
     h1 {
-      margin-top: 14px;
-      font-size: 32px;
-      line-height: 1.18;
-      font-weight: 900;
-      letter-spacing: 0.4px;
-      text-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
-    }
-
-    h1 .accent {
-      background: linear-gradient(135deg, #fff2c6, #ffc247 45%, #ff8a00 85%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      filter: drop-shadow(0 0 10px rgba(255, 168, 38, 0.26));
-    }
-
-    .subtitle {
-      margin-top: 12px;
-      color: rgba(238, 246, 255, 0.86);
-      font-size: 15px;
-      line-height: 1.85;
-      white-space: normal;
-      word-break: normal;
-      overflow-wrap: anywhere;
-    }
-
-    .layout {
-      display: grid;
-      gap: 18px;
-      max-width: 100%;
-    }
-
-    .panel {
-      position: relative;
-      max-width: 100%;
-      border-radius: 26px;
-      background:
-        linear-gradient(160deg, rgba(255,255,255,0.115), rgba(255,255,255,0.045)),
-        linear-gradient(135deg, rgba(0, 80, 160, 0.34), rgba(0, 22, 52, 0.28));
-      border: 1px solid rgba(120, 180, 235, 0.20);
-      box-shadow:
-        0 18px 42px rgba(0,0,0,0.34),
-        inset 0 0 42px rgba(0, 86, 168, 0.16);
-      backdrop-filter: blur(14px);
-      overflow: hidden;
-    }
-
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(0, 114, 206, 0.16), transparent 42%),
-        radial-gradient(circle at 85% 12%, rgba(255, 168, 38, 0.14), transparent 20%),
-        radial-gradient(circle at 18% 92%, rgba(0, 90, 180, 0.22), transparent 26%);
-      pointer-events: none;
-    }
-
-    .panel-inner {
-      position: relative;
-      z-index: 1;
-      padding: 18px 14px 18px;
-      max-width: 100%;
-    }
-
-    .section-title {
-      font-size: 22px;
-      font-weight: 900;
-      line-height: 1.4;
-      margin-bottom: 6px;
-      color: #ffffff;
-    }
-
-    .section-desc {
-      font-size: 14px;
-      line-height: 1.8;
-      color: rgba(226, 237, 255, 0.78);
+      font-size: clamp(34px, 10.5vw, 52px);
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+      font-weight: 950;
       margin-bottom: 16px;
-      white-space: normal;
-      word-break: normal;
-      overflow-wrap: anywhere;
+      color: #06245a;
     }
 
-    .staircase-wrap {
-      position: relative;
-      height: 340px;
-      max-width: 100%;
-      overflow: hidden;
-      border-radius: 22px;
-      background:
-        radial-gradient(circle at 20% 12%, rgba(0, 114, 206, 0.24), transparent 25%),
-        linear-gradient(180deg, rgba(2, 20, 48, 0.86), rgba(0, 51, 110, 0.50));
-      border: 1px solid rgba(120, 180, 235, 0.18);
-      box-shadow:
-        inset 0 0 40px rgba(0, 0, 0, 0.25),
-        inset 0 0 26px rgba(0, 112, 204, 0.12);
-      scroll-margin-top: 18px;
-    }
-
-    .staircase-wrap::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.032) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.032) 1px, transparent 1px);
-      background-size: 24px 24px;
-      pointer-events: none;
-    }
-
-    .stairs {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 250px;
-      display: flex;
-      align-items: flex-end;
-      gap: 3px;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .step-bar {
-      flex: 1;
-      border-radius: 10px 10px 0 0;
-      background:
-        linear-gradient(180deg, #1fa4ff 0%, #006ec7 42%, #003f8c 100%);
-      position: relative;
-      box-shadow:
-        inset 0 -12px 18px rgba(0, 0, 0, 0.24),
-        0 0 18px rgba(0, 116, 210, 0.22);
-      animation: rise 0.9s ease both;
-      transform-origin: bottom;
-    }
-
-    .step-bar::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.24), transparent 45%),
-        linear-gradient(180deg, rgba(255,255,255,0.10), transparent 40%);
-      border-radius: 10px 10px 0 0;
-    }
-
-    @keyframes rise {
-      from {
-        transform: scaleY(0);
-        opacity: 0.3;
-      }
-      to {
-        transform: scaleY(1);
-        opacity: 1;
-      }
-    }
-
-    .bar1 { height: 24px; animation-delay: 0.05s; }
-    .bar2 { height: 40px; animation-delay: 0.10s; }
-    .bar3 { height: 58px; animation-delay: 0.15s; }
-    .bar4 { height: 76px; animation-delay: 0.20s; }
-    .bar5 { height: 96px; animation-delay: 0.25s; }
-    .bar6 { height: 118px; animation-delay: 0.30s; }
-    .bar7 { height: 140px; animation-delay: 0.35s; }
-    .bar8 { height: 164px; animation-delay: 0.40s; }
-    .bar9 { height: 188px; animation-delay: 0.45s; }
-    .bar10 { height: 212px; animation-delay: 0.50s; }
-    .bar11 { height: 236px; animation-delay: 0.55s; }
-    .bar12 { height: 250px; animation-delay: 0.60s; }
-
-    .tech-line {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      width: 100%;
-      height: 100%;
-      max-width: 100%;
-    }
-
-    .milestone {
-      position: absolute;
-      z-index: 5;
-      transform: translate(-50%, -50%);
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      text-align: center;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .milestone-box {
-      min-width: 78px;
-      padding: 10px 8px;
-      border-radius: 16px;
-      background:
-        linear-gradient(160deg, rgba(0, 48, 105, 0.98), rgba(0, 26, 62, 0.92));
-      border: 1px solid rgba(120, 190, 255, 0.38);
-      box-shadow:
-        0 10px 24px rgba(0,0,0,0.34),
-        0 0 0 1px rgba(0, 120, 210, 0.10) inset,
-        0 0 18px rgba(0, 120, 210, 0.18);
-      transition: 0.25s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .milestone.active .milestone-box {
-      transform: translateY(-2px) scale(1.04);
-      border-color: rgba(255, 214, 120, 0.82);
-      box-shadow:
-        0 14px 28px rgba(0,0,0,0.36),
-        0 0 0 1px rgba(255, 168, 38, 0.22) inset,
-        0 0 28px rgba(255, 168, 38, 0.38);
-      background:
-        linear-gradient(160deg, rgba(255, 168, 38, 0.98), rgba(255, 123, 0, 0.94));
-    }
-
-    .milestone-name {
+    .hero-blue {
       display: block;
+      color: #0b4f9f;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(19px, 5.4vw, 28px);
+      line-height: 1.42;
+      font-weight: 950;
+      margin-bottom: 14px;
+      color: #06245a;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: #4d6078;
+      margin-bottom: 22px;
+      max-width: 700px;
+    }
+
+    .hero-focus {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(6, 36, 90, 0.14);
+    }
+
+    .focus-label {
       font-size: 13px;
       font-weight: 900;
-      color: #ffffff;
-      line-height: 1.2;
-      white-space: nowrap;
+      letter-spacing: 0.12em;
+      color: #0b4f9f;
+      margin-bottom: 8px;
     }
 
-    .milestone-sub {
-      display: block;
-      margin-top: 4px;
-      font-size: 10.5px;
-      color: rgba(255,255,255,0.86);
-      font-weight: 800;
-      letter-spacing: 0.2px;
-      line-height: 1.35;
-      white-space: nowrap;
-    }
-
-    .milestone-director { left: 22%; top: 76%; }
-    .milestone-assistant { left: 44%; top: 59%; }
-    .milestone-manager { left: 66%; top: 40%; }
-    .milestone-branch { left: 80%; top: 22%; }
-
-    .tap-hint {
-      margin-top: 14px;
-      padding: 12px 14px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(255, 168, 38, 0.24), rgba(255, 123, 0, 0.13));
-      border: 1px solid rgba(255, 196, 100, 0.46);
-      color: #ffd28a;
-      text-align: center;
-      box-shadow:
-        0 0 18px rgba(255, 168, 38, 0.18),
-        inset 0 0 0 1px rgba(255,255,255,0.05);
+    .focus-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 12px;
+      color: #06245a;
+      font-size: 16px;
+      font-weight: 950;
       line-height: 1.5;
     }
 
-    .tap-main {
-      font-size: 14px;
-      font-weight: 900;
+    .focus-line span {
+      display: inline-flex;
+      align-items: center;
     }
 
-    .tap-sub {
-      margin-top: 4px;
-      font-size: 13px;
-      font-weight: 800;
-      color: rgba(255, 226, 170, 0.92);
+    .focus-line span:not(:last-child)::after {
+      content: "×";
+      margin-left: 12px;
+      color: #f5a400;
+      font-weight: 950;
     }
 
-    .detail-panel {
-      position: relative;
-      z-index: 1;
-      max-width: 100%;
+    section {
+      padding: 48px 18px;
+      overflow: hidden;
+    }
+
+    .container {
+      width: min(1040px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 0.12em;
+      color: #0b4f9f;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 7.6vw, 40px);
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      font-weight: 950;
+      margin-bottom: 14px;
+      color: #06245a;
+    }
+
+    .section-desc {
+      font-size: 15.8px;
+      color: #53657d;
+      margin-bottom: 24px;
+    }
+
+    .challenge {
+      background: #ffffff;
+    }
+
+    .compact-card {
+      background: #f8fbff;
+      border: 1px solid rgba(6, 36, 90, 0.1);
       border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(245, 249, 255, 0.99));
-      color: #0b1b38;
-      padding: 18px;
-      box-shadow: 0 18px 42px rgba(0,0,0,0.28);
-      overflow-x: hidden;
-      scroll-margin-top: 16px;
+      padding: 22px 20px;
+      box-shadow: 0 14px 34px rgba(6, 36, 90, 0.07);
     }
 
-    .detail-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+    .challenge-list {
+      display: grid;
       gap: 12px;
+    }
+
+    .challenge-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .challenge-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: #06245a;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 950;
+      font-size: 14px;
+      flex: 0 0 auto;
+    }
+
+    .challenge-item h3 {
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 950;
+      margin-bottom: 2px;
+      color: #06245a;
+    }
+
+    .challenge-item p {
+      font-size: 14.8px;
+      color: #5a6c82;
+    }
+
+    .ability {
+      background: linear-gradient(180deg, #f3f7fb 0%, #ffffff 100%);
+    }
+
+    .ability-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .ability-card {
+      position: relative;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 22px 20px;
+      border: 1px solid rgba(6, 36, 90, 0.1);
+      box-shadow: 0 14px 36px rgba(6, 36, 90, 0.08);
+      overflow: hidden;
+    }
+
+    .ability-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 6px;
+      width: 100%;
+      background: linear-gradient(90deg, #06245a, #0b4f9f, #f5a400);
+    }
+
+    .ability-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .ability-no {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      background: #06245a;
+      color: #ffffff;
+      font-weight: 950;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .ability-card:nth-child(2) .ability-no {
+      background: #0b4f9f;
+    }
+
+    .ability-card:nth-child(3) .ability-no {
+      background: #f5a400;
+      color: #06245a;
+    }
+
+    .ability-card h3 {
+      font-size: 21px;
+      font-weight: 950;
+      line-height: 1.3;
+    }
+
+    .ability-tagline {
+      font-size: 15px;
+      color: #0b4f9f;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .ability-card p {
+      font-size: 15px;
+      color: #53657d;
+    }
+
+    .learning {
+      background: #06245a;
+      color: #ffffff;
+    }
+
+    .learning .section-kicker,
+    .learning .section-title {
+      color: #ffffff;
+    }
+
+    .learning .section-desc {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .learning-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .learning-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      padding: 22px 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .learning-label {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #f5a400;
+      color: #06245a;
+      font-size: 13px;
+      font-weight: 950;
+      margin-bottom: 12px;
+    }
+
+    .learning-card h3 {
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 950;
+      margin-bottom: 8px;
+    }
+
+    .learning-card p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.82);
       margin-bottom: 14px;
     }
 
-    .detail-title-wrap h2 {
-      font-size: 25px;
-      line-height: 1.2;
-      font-weight: 900;
-      color: #062a55;
-    }
-
-    .detail-badge {
-      margin-top: 7px;
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #fff4df;
-      color: #d96b00;
-      font-size: 12px;
-      font-weight: 900;
-      border: 1px solid rgba(217, 107, 0, 0.12);
-    }
-
-    .detail-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #ffb13b, #ff7a1a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      color: #fff;
-      flex-shrink: 0;
-      box-shadow: 0 10px 20px rgba(255,122,26,0.24);
-    }
-
-    .detail-intro {
-      color: #34415a;
-      font-size: 15px;
-      line-height: 1.85;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    .info-list {
+    .mini-list {
       display: grid;
-      gap: 10px;
-    }
-
-    .info-box {
-      border-radius: 16px;
-      background: #f3f7ff;
-      border-left: 5px solid #ff8a00;
-      padding: 13px 14px;
-    }
-
-    .info-box b {
-      display: block;
-      color: #062a55;
-      font-size: 14px;
-      font-weight: 900;
-      margin-bottom: 5px;
-    }
-
-    .info-box span {
-      display: block;
-      color: #34415a;
-      font-size: 14px;
-      line-height: 1.75;
-      font-weight: 600;
-    }
-
-    .detail-tags {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
       gap: 8px;
-      max-width: 100%;
     }
 
-    .detail-tags span {
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: #eef4ff;
-      color: #062a55;
-      font-size: 12px;
-      font-weight: 800;
-      border: 1px solid rgba(6, 42, 85, 0.08);
+    .mini-list li {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+      font-size: 14.8px;
+      color: rgba(255, 255, 255, 0.9);
     }
 
-    .detail-actions {
-      margin-top: 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      max-width: 100%;
+    .mini-list li::before {
+      content: "✓";
+      color: #f5a400;
+      font-weight: 950;
     }
 
-    .detail-btn {
+    .value {
+      background: #ffffff;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .value-card {
+      background: #f8fbff;
+      border: 1px solid rgba(6, 36, 90, 0.1);
+      border-radius: 20px;
+      padding: 18px 16px;
+      box-shadow: 0 12px 28px rgba(6, 36, 90, 0.06);
+    }
+
+    .value-card h3 {
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 950;
+      color: #06245a;
+      margin-bottom: 6px;
+    }
+
+    .value-card p {
+      font-size: 14.5px;
+      color: #5a6c82;
+    }
+
+    .value-no {
       display: inline-flex;
+      font-size: 13px;
+      font-weight: 950;
+      color: #f5a400;
+      margin-bottom: 6px;
+    }
+
+    .final {
+      padding: 48px 18px 42px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(245, 164, 0, 0.16), transparent 34%),
+        linear-gradient(135deg, #eef4fb 0%, #ffffff 60%, #f7f1df 100%);
+    }
+
+    .final-card {
+      background: #ffffff;
+      border: 1px solid rgba(6, 36, 90, 0.1);
+      border-radius: 26px;
+      padding: 28px 22px;
+      box-shadow: 0 18px 48px rgba(6, 36, 90, 0.12);
+    }
+
+    .final-card h2 {
+      font-size: clamp(27px, 8vw, 40px);
+      line-height: 1.28;
+      letter-spacing: -0.03em;
+      font-weight: 950;
+      margin-bottom: 12px;
+    }
+
+    .final-card p {
+      font-size: 15.5px;
+      color: #53657d;
+      margin-bottom: 20px;
+    }
+
+    .home-btn {
+      display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 900;
-      transition: 0.2s ease;
-      text-align: center;
-    }
-
-    .detail-btn.primary {
+      min-height: 48px;
       width: 100%;
-      max-width: 280px;
-      padding: 14px 20px;
-      font-size: 16px;
-      background: linear-gradient(135deg, #ffb13b, #ff7a1a);
+      border-radius: 999px;
+      background: #06245a;
       color: #ffffff;
-      box-shadow:
-        0 12px 24px rgba(255,122,26,0.32),
-        0 0 18px rgba(255,168,38,0.22);
+      font-size: 15px;
+      font-weight: 950;
+      box-shadow: 0 12px 28px rgba(6, 36, 90, 0.18);
     }
 
-    .detail-btn.secondary {
-      padding: 8px 14px;
-      font-size: 13px;
-      background: transparent;
-      color: #55708f;
+    .home-btn:active {
+      transform: scale(0.98);
     }
 
     .footer {
-      margin-top: 24px;
+      padding: 18px;
+      background: #06245a;
+      color: rgba(255, 255, 255, 0.72);
       text-align: center;
-      color: rgba(255,255,255,0.56);
       font-size: 13px;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     @media (min-width: 768px) {
-      .page {
-        width: min(100%, 1050px);
-        padding: 28px 20px 42px;
+      .hero {
+        padding: 72px 28px 54px;
       }
 
-      .layout {
-        grid-template-columns: 1.08fr 0.92fr;
-        align-items: start;
+      .hero-focus {
+        max-width: 540px;
       }
 
-      .detail-panel {
-        position: sticky;
-        top: 20px;
+      section {
+        padding: 72px 28px;
       }
 
-      h1 {
-        font-size: 50px;
+      .ability-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      .subtitle {
-        font-size: 16px;
+      .learning-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .milestone-box {
-        min-width: 82px;
-        padding: 10px 10px;
+      .value-grid {
+        grid-template-columns: repeat(4, 1fr);
       }
 
-      .milestone-name {
-        font-size: 14px;
-      }
-
-      .milestone-sub {
-        font-size: 11px;
-      }
-
-      .milestone-branch {
-        left: 84%;
+      .compact-card {
+        padding: 28px;
       }
     }
 
-    @media (max-width: 420px) {
-      .page {
-        padding: 18px 12px 34px;
-      }
-
+    @media (max-width: 380px) {
       h1 {
-        font-size: 29px;
+        font-size: 33px;
       }
 
-      .staircase-wrap {
-        height: 325px;
+      .hero-subtitle {
+        font-size: 19px;
       }
 
-      .stairs {
-        height: 238px;
+      .section-title {
+        font-size: 25px;
       }
 
-      .milestone-box {
-        min-width: 72px;
-        padding: 9px 7px;
+      .focus-line {
+        font-size: 15px;
+        gap: 6px 10px;
       }
 
-      .milestone-name {
-        font-size: 12px;
+      .focus-line span:not(:last-child)::after {
+        margin-left: 10px;
       }
 
-      .milestone-sub {
-        font-size: 10px;
-      }
-
-      .milestone-director {
-        left: 22%;
-        top: 76%;
-      }
-
-      .milestone-assistant {
-        left: 44%;
-        top: 59%;
-      }
-
-      .milestone-manager {
-        left: 64%;
-        top: 40%;
-      }
-
-      .milestone-branch {
-        left: 78%;
-        top: 22%;
-      }
-
-      .tap-main {
-        font-size: 13px;
-      }
-
-      .tap-sub {
-        font-size: 12px;
+      .value-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-    <section class="hero">
-      <div class="tag">凱基人壽主管培育地圖</div>
+  <div class="page">
 
-    <h1>
-  主管職涯<span class="accent">晉升階梯</span>
-</h1>
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">處經理經營升級</div>
 
-      <p class="subtitle">
-        晉升有路徑，能力有接續，主管養成不斷線。<br>
-        讓晉升不只是職級改變，而是能力真正升級。
-      </p>
-    </section>
+          <h1>
+            從經營單位
+            <span class="hero-blue">到帶動組織再成長</span>
+          </h1>
 
-    <div class="layout">
-      <section class="panel">
-        <div class="panel-inner">
-          <div class="section-title">晉升階梯</div>
-
-          <div class="section-desc">
-            由下而上，對應主管能力四階段：<br>
-            帶人起步、團隊帶動、經營管理、領導營運。
+          <div class="hero-subtitle">
+            在變局中穩住團隊，<br />
+            在逆境中重啟成長。
           </div>
 
-          <div id="staircaseMap" class="staircase-wrap">
-            <div class="stairs">
-              <div class="step-bar bar1"></div>
-              <div class="step-bar bar2"></div>
-              <div class="step-bar bar3"></div>
-              <div class="step-bar bar4"></div>
-              <div class="step-bar bar5"></div>
-              <div class="step-bar bar6"></div>
-              <div class="step-bar bar7"></div>
-              <div class="step-bar bar8"></div>
-              <div class="step-bar bar9"></div>
-              <div class="step-bar bar10"></div>
-              <div class="step-bar bar11"></div>
-              <div class="step-bar bar12"></div>
+          <p class="hero-desc">
+            處經理的任務，不只是帶領單位完成目標，更是在變動環境中看清方向、凝聚團隊，讓組織持續長出新的成長動能。
+          </p>
+
+          <div class="hero-focus">
+            <div class="focus-label">培育主軸</div>
+            <div class="focus-line">
+              <span>變革管理</span>
+              <span>逆境領導</span>
+              <span>組織再成長</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="challenge">
+      <div class="container">
+        <div class="section-kicker">WHY</div>
+        <h2 class="section-title">處經理的下一步，是帶動組織持續成長</h2>
+        <p class="section-desc">
+          當市場變快、團隊世代改變，處經理需要重新判斷局勢、調整帶領方式，並帶動主管團隊一起往前。
+        </p>
+
+        <div class="compact-card">
+          <div class="challenge-list">
+            <div class="challenge-item">
+              <div class="challenge-icon">1</div>
+              <div>
+                <h3>成長遇到瓶頸</h3>
+                <p>不是沒有努力，而是過去有效的方法，可能已經不足以支撐下一階段。</p>
+              </div>
             </div>
 
-            <svg class="tech-line" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="lineGlow" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#6fc7ff" stop-opacity="0.85"/>
-                  <stop offset="48%" stop-color="#ffcf6b" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#ff8a00" stop-opacity="1"/>
-                </linearGradient>
-              </defs>
-              <polyline
-                points="10,84 22,76 44,59 66,40 84,22 94,16"
-                fill="none"
-                stroke="url(#lineGlow)"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-
-            <button class="milestone milestone-director active" data-role="director" aria-label="業務主任">
-              <div class="milestone-box">
-                <span class="milestone-name">業務主任</span>
-                <span class="milestone-sub">帶人起步</span>
+            <div class="challenge-item">
+              <div class="challenge-icon">2</div>
+              <div>
+                <h3>主管梯隊需要接棒</h3>
+                <p>組織不能只靠處經理本人推動，更需要培育能帶人、能複製的主管。</p>
               </div>
-            </button>
+            </div>
 
-            <button class="milestone milestone-assistant" data-role="assistant" aria-label="業務襄理">
-              <div class="milestone-box">
-                <span class="milestone-name">業務襄理</span>
-                <span class="milestone-sub">團隊帶動</span>
+            <div class="challenge-item">
+              <div class="challenge-icon">3</div>
+              <div>
+                <h3>團隊動能需要重整</h3>
+                <p>當壓力增加或方向不明，處經理要穩住核心團隊，重新凝聚共識。</p>
               </div>
-            </button>
-
-            <button class="milestone milestone-manager" data-role="manager" aria-label="業務經理">
-              <div class="milestone-box">
-                <span class="milestone-name">業務經理</span>
-                <span class="milestone-sub">經營管理</span>
-              </div>
-            </button>
-
-            <button class="milestone milestone-branch" data-role="branch" aria-label="處經理">
-              <div class="milestone-box">
-                <span class="milestone-name">處經理</span>
-                <span class="milestone-sub">領導營運</span>
-              </div>
-            </button>
-          </div>
-
-          <div class="tap-hint">
-            <div class="tap-main">👆 請點選上方職級</div>
-            <div class="tap-sub">查看各職級訓練簡介</div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section>
-        <div id="detailPanel" class="detail-panel"></div>
-      </section>
-    </div>
+    <section class="ability">
+      <div class="container">
+        <div class="section-kicker">CORE ABILITY</div>
+        <h2 class="section-title">三大關鍵能力，帶領處經理穿越變局</h2>
+        <p class="section-desc">
+          這不是固定課表，而是處經理面對下一階段組織發展時，最需要強化的能力方向。
+        </p>
 
-    <div class="footer">
-      凱基人壽｜業務訓練部
-    </div>
-  </main>
-
-  <script>
-    const roleData = {
-      director: {
-        icon: "🚀",
-        title: "業務主任課程",
-        badge: "增員實戰起步",
-        intro: "業務主任階段的關鍵，在於從個人業績延伸到帶人與增員推進。課程聚焦高效行銷、增員啟動、取得名單、增員接觸與探詢需求，協助主任建立帶人與推動組織成長的核心能力。",
-        target: "適合剛晉升業務主任，準備啟動增員與帶人基本功的夥伴。",
-        focus: "高效行銷、增員啟動、取得名單、增員接觸、探詢需求。",
-        result: "學完後可更清楚掌握主任在增員流程中的角色與推進做法。",
-        tags: ["高效行銷", "增員啟動", "取得名單", "增員接觸", "探詢需求"],
-        primaryText: "查看業務主任課程",
-        primaryLink: "https://kaoruying.github.io/astraning/"
-      },
-
-      assistant: {
-        icon: "📈",
-        title: "業務襄理課程",
-        badge: "團隊經營進階",
-        intro: "業務襄理階段的重點，是從個人帶動走向團隊經營。課程聚焦輔導陪跑、活動管理、團隊經營與主管培育能力，協助襄理建立更穩定的組織發展動能。",
-        target: "適合已具備基本帶人能力，準備加強團隊經營與主管育成的業務襄理。",
-        focus: "團隊經營、聚焦輔導、活動管理、主管培育。",
-        result: "學完後可更有系統地陪跑團隊，提升組織延續與成長力。",
-        tags: ["團隊經營", "聚焦輔導", "活動管理", "主管育成"],
-        primaryText: "查看業務襄理課程",
-        primaryLink: "https://kaoruying.github.io/sastraining/"
-      },
-
-      manager: {
-        icon: "🏆",
-        title: "業務經理課程",
-        badge: "經營管理升級",
-        intro: "業務經理階段的核心，是從團隊帶動走向經營管理。課程聚焦經營思維、績效推進、活動量管理與團隊帶動，協助經理從管理角色升級為經營者。",
-        target: "適合已晉升業務經理，正在建立經營管理節奏與團隊推進能力的主管。",
-        focus: "經營管理、績效推進、團隊帶動、活動量管理、主管角色升級。",
-        result: "學完後可更清楚掌握經理如何推動團隊經營，並帶動組織穩定成長。",
-        tags: ["經營管理", "績效推進", "活動量管理", "團隊帶動", "角色升級"],
-        primaryText: "查看業務經理課程",
-        primaryLink: "https://kaoruying.github.io/umtraining/"
-      },
-
-      branch: {
-        icon: "👑",
-        title: "處經理課程",
-        badge: "領導營運升級",
-        intro: "處經理階段的關鍵，是從單一團隊管理，走向通訊處整體營運。課程聚焦組織發展、領導影響力、經營策略與人才梯隊培育，協助處經理提升單位長期發展動能。",
-        target: "適合已擔任處經理，或正在強化通訊處營運視角與領導格局的主管。",
-        focus: "領導營運、組織發展、經營策略、人才梯隊、單位成長動能。",
-        result: "學完後可更具經營者視角，掌握通訊處發展方向、團隊凝聚與人才培育關鍵。",
-        tags: ["領導營運", "組織發展", "經營策略", "人才梯隊", "通訊處經營"],
-        primaryText: "查看處經理課程",
-        primaryLink: "https://kaoruying.github.io/dmtraining/"
-      }
-    };
-
-    const detailPanel = document.getElementById("detailPanel");
-    const milestones = document.querySelectorAll(".milestone");
-
-    function renderDetail(roleKey) {
-      const data = roleData[roleKey];
-
-      detailPanel.innerHTML = `
-        <div class="detail-head">
-          <div class="detail-title-wrap">
-            <h2>${data.title}</h2>
-            <div class="detail-badge">${data.badge}</div>
-          </div>
-          <div class="detail-icon">${data.icon}</div>
-        </div>
-
-        <div class="detail-intro">${data.intro}</div>
-
-        <div class="info-list">
-          <div class="info-box">
-            <b>適合對象</b>
-            <span>${data.target}</span>
+        <div class="ability-grid">
+          <div class="ability-card">
+            <div class="ability-head">
+              <div class="ability-no">01</div>
+              <h3>變革管理力</h3>
+            </div>
+            <div class="ability-tagline">看懂變化、釐清方向、推動轉型</div>
+            <p>
+              面對市場、組織與團隊型態變化，將變革轉化為團隊可以理解、可以行動的方向。
+            </p>
           </div>
 
-          <div class="info-box">
-            <b>訓練重點</b>
-            <span>${data.focus}</span>
+          <div class="ability-card">
+            <div class="ability-head">
+              <div class="ability-no">02</div>
+              <h3>逆境領導力</h3>
+            </div>
+            <div class="ability-tagline">穩住團隊、重建信心、帶出突破</div>
+            <p>
+              當單位遇到停滯、士氣波動或目標壓力，帶領主管重新聚焦，找到突破路徑。
+            </p>
           </div>
 
-          <div class="info-box">
-            <b>學完收穫</b>
-            <span>${data.result}</span>
+          <div class="ability-card">
+            <div class="ability-head">
+              <div class="ability-no">03</div>
+              <h3>組織發展力</h3>
+            </div>
+            <div class="ability-tagline">培育主管、擴大組織、延續成長</div>
+            <p>
+              不只管理現在成果，更要思考增員動能、主管梯隊與可持續成長機制。
+            </p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="detail-tags">
-          ${data.tags.map(tag => `<span>${tag}</span>`).join("")}
+    <section class="learning">
+      <div class="container">
+        <div class="section-kicker">LEARNING DESIGN</div>
+        <h2 class="section-title">從外部視野到實戰落地，完整推進處經理成長</h2>
+        <p class="section-desc">
+          以高階經營視野與實戰工作坊作為兩大強化培訓課程，協助處經理打開思考高度，也能將啟發帶回單位推動。
+        </p>
+
+        <div class="learning-grid">
+          <div class="learning-card">
+            <div class="learning-label">強化培訓一</div>
+            <h3>高階經營視野</h3>
+            <p>
+              透過外部經營者與高階領導者的實戰分享，協助處經理從不同產業視角，
+              看見變革管理、逆境領導與組織成長的關鍵思維。
+            </p>
+            <ul class="mini-list">
+              <li>借鏡外部企業經營經驗</li>
+              <li>看見變革中的領導決策</li>
+              <li>理解逆境下的團隊凝聚方式</li>
+              <li>啟發處經理對組織發展的下一步思考</li>
+            </ul>
+          </div>
+
+          <div class="learning-card">
+            <div class="learning-label">強化培訓二</div>
+            <h3>實戰經營工作坊</h3>
+            <p>
+              透過課程引導、實戰案例、同儕交流與工作坊回訓，
+              協助處經理將經營思維轉化為單位可執行的行動方案。
+            </p>
+            <ul class="mini-list">
+              <li>聚焦處經理真實經營挑戰</li>
+              <li>透過案例交流看見不同單位做法</li>
+              <li>將學習內容轉化為行動計畫</li>
+              <li>透過追蹤與交流延續課後落地成效</li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="detail-actions">
-          <a class="detail-btn primary" href="${data.primaryLink}">${data.primaryText}</a>
-          <a class="detail-btn secondary" href="#staircaseMap" onclick="document.getElementById('staircaseMap').scrollIntoView({behavior:'smooth', block:'center'}); return false;">回到晉升階梯</a>
+    <section class="value">
+      <div class="container">
+        <div class="section-kicker">VALUE</div>
+        <h2 class="section-title">帶回單位的，不只是一堂課</h2>
+        <p class="section-desc">
+          重點不是聽完一場內容，而是帶回能重新推進組織的經營思考。
+        </p>
+
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="value-no">01</div>
+            <h3>看見變化</h3>
+            <p>重新判斷單位下一階段方向。</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-no">02</div>
+            <h3>穩住團隊</h3>
+            <p>凝聚主管共識與行動節奏。</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-no">03</div>
+            <h3>重啟成長</h3>
+            <p>找出增員與主管培育切入點。</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-no">04</div>
+            <h3>落地行動</h3>
+            <p>把啟發轉化為可推進方案。</p>
+          </div>
         </div>
-      `;
-    }
+      </div>
+    </section>
 
-    function scrollToDetail() {
-      setTimeout(() => {
-        detailPanel.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }, 80);
-    }
+    <section class="final">
+      <div class="container">
+        <div class="final-card">
+          <h2>
+            處經理的價值，<br />
+            是帶領組織在變局中繼續成長。
+          </h2>
 
-    milestones.forEach(btn => {
-      btn.addEventListener("click", () => {
-        milestones.forEach(item => item.classList.remove("active"));
-        btn.classList.add("active");
+          <p>
+            透過變革管理、逆境領導與組織發展三大主軸，協助處經理打開經營視野、穩住團隊方向，推動單位邁向下一階段。
+          </p>
 
-        renderDetail(btn.dataset.role);
-        scrollToDetail();
-      });
-    });
+          <a class="home-btn" href="https://kaoruying.github.io/salestraining/">
+            回主管訓練藍圖
+          </a>
+        </div>
+      </div>
+    </section>
 
-    renderDetail("director");
-  </script>
+    <footer class="footer">
+      處經理經營升級｜變革管理 × 逆境領導 × 組織再成長
+    </footer>
+
+  </div>
 </body>
 </html>
